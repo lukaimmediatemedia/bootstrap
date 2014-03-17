@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bootstrap", "bootstrap\bootstrap.csproj", "{643493C5-33CD-47E5-B926-BC625E2394DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bootstrap.Tests", "bootstrap.Tests\bootstrap.Tests.csproj", "{A095FB50-51FD-4CBB-B170-77D9DC5715AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{643493C5-33CD-47E5-B926-BC625E2394DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{643493C5-33CD-47E5-B926-BC625E2394DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{643493C5-33CD-47E5-B926-BC625E2394DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{643493C5-33CD-47E5-B926-BC625E2394DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A095FB50-51FD-4CBB-B170-77D9DC5715AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A095FB50-51FD-4CBB-B170-77D9DC5715AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A095FB50-51FD-4CBB-B170-77D9DC5715AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A095FB50-51FD-4CBB-B170-77D9DC5715AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
