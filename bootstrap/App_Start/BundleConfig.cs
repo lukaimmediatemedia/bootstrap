@@ -8,9 +8,16 @@ namespace bootstrap
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
-            
+            //jQuery
+            var jquery = new ScriptBundle("~/bundles/jquery");
+            jquery.Include("~/Scripts/js/jquery/jquery-{version}.js");
+            bundles.Add(jquery);
+
+            //Modernizr
+            var modernizr = new ScriptBundle("~/bundles/modernizr");
+            modernizr.Include("~/Scripts/js/modernizr/modernizr-{version}.js");
+            bundles.Add(modernizr);
+
             //SASS CSS
             var bsSassCss = new StyleBundle("~/bundles/sass");
             bsSassCss.Include("~/Content/css/sass/bootstrap.css");
@@ -30,7 +37,8 @@ namespace bootstrap
                 "~/Scripts/js/sass/bootstrap/scrollspy.js",
                 "~/Scripts/js/sass/bootstrap/modal.js",
                 "~/Scripts/js/sass/bootstrap/tooltip.js",
-                "~/Scripts/js/sass/bootstrap/popover.js");
+                "~/Scripts/js/sass/bootstrap/popover.js"
+                );
             bundles.Add(bsSassJs);
 
             //LESS CSS
