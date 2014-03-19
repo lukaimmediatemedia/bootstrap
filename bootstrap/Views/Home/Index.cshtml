@@ -1,6 +1,10 @@
-﻿@{
+﻿@using bootstrap.Resources
+
+@{
     Layout = null;
-    ViewBag.Title = "Home page";
+    ViewBag.Title = FrontPageResources.front_page_meta_title;
+    ViewBag.Description = FrontPageResources.front_page_meta_description;
+    ViewBag.Author = FrontPageResources.front_page_meta_author;
 }
 
 <!DOCTYPE html>
@@ -9,8 +13,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="author" content="@ViewBag.Author">
     <title>@ViewBag.Title</title>
     <!-- Bootstrap core CSS -->
     @Styles.Render("~/bundles/sass")
@@ -26,6 +30,19 @@
     <![endif]-->
   </head>
   <body>
+     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">@FrontPageResources.front_page_project_name</a>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
@@ -41,5 +58,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/sass-js")
   </body>
 </html>
