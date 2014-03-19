@@ -278,6 +278,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Page\Index.cshtml" />
     <Content Include="Views\Tutorial\Index.cshtml" />
+    <Content Include="Views\Shared\Main\TopNav.cshtml" />
+    <Content Include="Views\Shared\Main\Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

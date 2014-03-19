@@ -1,5 +1,6 @@
 ﻿@using bootstrap.Resources
 
+
 @{
     Layout = null;
     ViewBag.Title = FrontPageResources.front_page_meta_title;
@@ -30,30 +31,19 @@
     <![endif]-->
   </head>
   <body>
-     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">@FrontPageResources.front_page_project_name</a>
-        </div>
-      </div>
-    </div>
+     
+    @{ Html.RenderPartial("Main/TopNav"); }
+
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           Content
         </div>
       </div>
-      <!-- Site footer -->
-      <div class="footer">
-        <p>2014</p>
-      </div>
     </div> <!-- /container -->
+
+    @{ Html.RenderPartial("Main/Footer"); }
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

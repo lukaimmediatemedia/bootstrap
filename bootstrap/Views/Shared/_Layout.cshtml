@@ -22,20 +22,22 @@
   </head>
   <body>
 
+    @{ Html.RenderPartial("Main/TopNav"); }
+
     <div class="container">
       <div class="row">
-        <div class=".col-sm-12">
+        <div class="col-sm-12">
           @RenderBody()
         </div>
       </div>
-      <!-- Site footer -->
-      <div class="footer">
-        <p>2014</p>
-      </div>
     </div> <!-- /container -->
+
+    @{ Html.RenderPartial("Main/Footer"); }
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/sass-js")
   </body>
 </html>
