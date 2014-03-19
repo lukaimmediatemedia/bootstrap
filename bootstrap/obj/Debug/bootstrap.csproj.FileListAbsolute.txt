@@ -31,3 +31,4 @@ D:\project\bootstrap\bootstrap\obj\Debug\bootstrap.dll
 D:\project\bootstrap\bootstrap\obj\Debug\bootstrap.pdb
 D:\project\bootstrap\bootstrap\obj\Debug\bootstrap.Resources.FrontPageResources.resources
 D:\project\bootstrap\bootstrap\obj\Debug\bootstrap.csproj.GenerateResource.Cache
+D:\project\bootstrap\bootstrap\obj\Debug\bootstrap.Resources.FooterResources.resources
