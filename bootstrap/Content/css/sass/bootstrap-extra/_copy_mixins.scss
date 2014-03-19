@@ -1,0 +1,390 @@
+// Baseline, measured in pixels
+// The value should be the same as the font-size value for the html element
+// If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+// then the variable below would be 10px.
+$baseline-px: 10px !default;
+
+@mixin rem($property, $px-values) {
+  // Convert the baseline into rems
+  $baseline-rem: $baseline-px / 1rem;
+  // Print the first line in pixel values
+  #{$property}: $px-values;
+  // If there is only one (numeric) value, return the property/value line for it.
+  @if type-of($px-values) == "number" {
+    #{$property}: $px-values / $baseline-rem; }
+  @else {
+    // Create an empty list that we can dump values into
+    $rem-values: unquote("");
+    @each $value in $px-values {
+      // If the value is zero, return 0
+      @if $value == 0 {
+        $rem-values: append($rem-values, $value); }
+      @else {
+        $rem-values: append($rem-values, $value / $baseline-rem); } }
+    // Return the property and its list of converted values
+    #{$property}: $rem-values; } 
+}
+
+// Sizing
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin square($size) {
+    @include size($size, $size);
+}
+
+// Clearfix
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+@mixin cf {
+    &:before,
+    &:after {
+      content: " "; /* 1 */
+      display: table; /* 2 */
+    }
+    &:after {
+      clear: both;
+    }
+}
+
+// Placeholder text
+@mixin placeholder($color: #444) {
+    &:-moz-placeholder {
+        color: $color;
+    }
+	&::-moz-placeholder {
+        color: $color;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+}
+
+// Placeholder text, opacity
+@mixin placeholder-opacity($color: #444, $opacity: 1 ) {
+    &:-moz-placeholder {
+        color: $color;
+		opacity: $opacity;
+    }
+	&::-moz-placeholder {
+        color: $color;
+		opacity: $opacity;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+		opacity: $opacity;
+    }
+    &::-webkit-input-placeholder {
+        color: $color;
+		opacity: $opacity;
+    }
+}
+
+// Image replacement
+@mixin ir {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+// Border Radius
+@mixin border-radius($radius: 10px) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+            border-radius: $radius;
+}
+
+// Single side border-radius
+@mixin border-top-radius($radius) {
+    border-top-right-radius: $radius;
+    border-top-left-radius: $radius;
+}
+@mixin border-right-radius($radius) {
+    border-bottom-right-radius: $radius;
+    border-top-right-radius: $radius;
+}
+@mixin border-bottom-radius($radius) {
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+}
+@mixin border-left-radius($radius) {
+    border-bottom-left-radius: $radius;
+    border-top-left-radius: $radius;
+}
+
+// Drop shadows
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+            box-shadow: $shadow;
+}
+
+@mixin text-shadow($value) {
+  -webkit-text-shadow: $value;
+     -moz-text-shadow: $value;
+          text-shadow: $value;
+}
+
+// Box Sizing
+@mixin box-sizing($value) {
+    -webkit-box-sizing: $value;
+       -moz-box-sizing: $value;
+            box-sizing: $value;
+}
+
+// Transitions
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+       -moz-transition: $transition;
+         -o-transition: $transition;
+            transition: $transition;
+}
+
+@mixin transition-delay($transition-delay) {
+    -webkit-transition-delay: $transition-delay;
+       -moz-transition-delay: $transition-delay;
+         -o-transition-delay: $transition-delay;
+            transition-delay: $transition-delay;
+}
+
+@mixin transition-duration($transition-duration) {
+    -webkit-transition-delay: $transition-duration;
+       -moz-transition-delay: $transition-duration;
+         -o-transition-delay: $transition-duration;
+            transition-delay: $transition-duration;
+}
+
+// Transformations
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+       -moz-transform: rotate($degrees);
+        -ms-transform: rotate($degrees);
+         -o-transform: rotate($degrees);
+            transform: rotate($degrees);
+}
+
+@mixin scale($ratio) {
+  -webkit-transform: scale($ratio);
+     -moz-transform: scale($ratio);
+      -ms-transform: scale($ratio);
+       -o-transform: scale($ratio);
+          transform: scale($ratio);
+}
+
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+     -moz-transform: translate($x, $y);
+      -ms-transform: translate($x, $y);
+       -o-transform: translate($x, $y);
+          transform: translate($x, $y);
+}
+
+@mixin skew($x, $y) {
+  -webkit-transform: skew($x, $y);
+     -moz-transform: skew($x, $y);
+      -ms-transform: skewX($x) skewY($y); // See https://github.com/twitter/bootstrap/issues/4885
+       -o-transform: skew($x, $y);
+          transform: skew($x, $y);
+}
+
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x, $y, $z);
+     -moz-transform: translate3d($x, $y, $z);
+       -o-transform: translate3d($x, $y, $z);
+          transform: translate3d($x, $y, $z);
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+     -moz-transform: $value;
+       -o-transform: $value;
+          transform: $value;
+}
+
+// Backface visibility
+// Prevent browsers from flickering when using CSS 3D transforms.
+// Default value is `visible`, but can be changed to `hidden
+// See git pull https://github.com/dannykeane/bootstrap.git backface-visibility for examples
+@mixin backface-visibility($visibility) {
+	-webkit-backface-visibility: $visibility;
+	   -moz-backface-visibility: $visibility;
+	        backface-visibility: $visibility;
+}
+
+// Background clipping
+// Heads up: FF 3.6 and under need "padding" instead of "padding-box"
+@mixin background-clip($clip) {
+  -webkit-background-clip: $clip;
+     -moz-background-clip: $clip;
+          background-clip: $clip;
+}
+
+// Background sizing
+@mixin background-size($size){
+  -webkit-background-size: $size;
+     -moz-background-size: $size;
+       -o-background-size: $size;
+          background-size: $size;
+}
+
+
+// User select
+// For selecting text on the page
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+      -ms-user-select: $select;
+       -o-user-select: $select;
+          user-select: $select;
+}
+
+// Resize anything
+@mixin resizable($direction) {
+    resize: $direction; // Options: horizontal, vertical, both
+    overflow: auto; // Safari fix
+}
+
+// CSS3 Content Columns
+@mixin content-columns($columnCount, $columnGap) {
+  -webkit-column-count: $columnCount;
+     -moz-column-count: $columnCount;
+          column-count: $columnCount;
+    -webkit-column-gap: $columnGap;
+       -moz-column-gap: $columnGap;
+            column-gap: $columnGap;
+}
+
+// Optional hyphenation
+@mixin hyphens($mode: auto) {
+  word-wrap: break-word;
+  -webkit-hyphens: $mode;
+     -moz-hyphens: $mode;
+      -ms-hyphens: $mode;
+       -o-hyphens: $mode;
+          hyphens: $mode;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity})";
+    filter: alpha(opacity=$opacity);
+	opacity: $opacity / 100;
+}
+
+@mixin gradient-horizontal($startColor: #555, $endColor: #333, $startPos: 0, $endPos: 100) {
+    $startPosPercent: ($startPos + 0%);
+    $endPosPercent: ($endPos + 0%);
+    background-color: $endColor;
+    background-image: -moz-linear-gradient(left, $startColor $startPosPercent, $endColor $endPosPercent);
+    background-image: -ms-linear-gradient(left, $startColor $startPosPercent, $endColor $endPosPercent);
+    background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(($startPos / 100), $startColor), color-stop(($endPos / 100), $endColor));
+    background-image: -webkit-linear-gradient(left, $startColor $startPosPercent, $endColor $endPosPercent);
+    background-image: -o-linear-gradient(left, $startColor $startPosPercent, $endColor $endPosPercent);
+    background-image: linear-gradient(to right, $startColor $startPosPercent, $endColor $endPosPercent);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=1);
+}
+
+@mixin gradient-vertical($startColor: #555, $endColor: #333, $startPos: 0, $endPos: 100) {
+    $startPosPercent: ($startPos + 0%);
+    $endPosPercent: ($endPos + 0%);
+    background-color: mix($startColor, $endColor, 60%);
+    background-image: -moz-linear-gradient(top, $startColor $startPosPercent, $endColor $endPosPercent); // FF 3.6+
+    background-image: -ms-linear-gradient(top, $startColor $startPosPercent, $endColor $endPosPercent); // IE10
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(($startPos / 100), $startColor), color-stop(($endPos / 100), $endColor)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, $startColor $startPosPercent, $endColor $endPosPercent); // Safari 5.1+, Chrome 10+
+    background-image: -o-linear-gradient(top, $startColor $startPosPercent, $endColor $endPosPercent); // Opera 11.10
+    background-image: linear-gradient(top, $startColor $startPosPercent, $endColor $endPosPercent); // The standard
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0);
+}
+
+// Button psuedo states
+// -------------------------
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+@mixin btn-pseudo-states-darken($color, $background, $border) {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        color: darken($color, 5%);
+        background-color: darken($background, 5%);
+        border-color: darken($border, 10%);
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: $background;
+            border-color: $border
+        }
+    }
+}
+
+@mixin btn-pseudo-states($color, $background, $border) {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        color: $color;
+        background-color: $background;
+        border-color: $border;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: $background;
+            border-color: $border
+        }
+    }
+}
+
+@mixin contentTransition ($delay: 250ms, $ease: ease-in-out) {
+    -webkit-transition: -webkit-transform $delay $ease;
+       -moz-transition:    -moz-transform $delay $ease;
+         -o-transition:      -o-transform $delay $ease;
+            transition:         transform $delay $ease;
+
+    // Prevent odd flickering in iOS
+    -webkit-backface-visibility: hidden;
+       -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+         -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+    // TODO - This needs to be applied to stop flickering, but it also hides the
+    // typeahead dropdown in webkit. Need to remove this style when typeahead is open
+
+    //-webkit-transform-style: preserve-3d;
+}
