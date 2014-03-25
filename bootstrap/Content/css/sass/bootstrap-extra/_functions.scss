@@ -1,0 +1,8 @@
+// Functions
+// ---------------------------------------------------------------
+
+// Use to convert px values to rem. Base value is 16 (browser default).
+// http://pxtoem.com/
+@function px($num, $base: 16) {
+    @return ($num / $base) + 0rem;
+}

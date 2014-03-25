@@ -242,6 +242,9 @@
     <Content Include="Content\css\less\bootstrap.less" />
     <Content Include="Content\css\sass\bootstrap-extra\_copy_mixins.scss" />
     <Content Include="Content\css\sass\bootstrap-extra\_mixins.scss" />
+    <Content Include="Content\css\sass\bootstrap-extra\_vars.scss" />
+    <Content Include="Content\css\sass\bootstrap-extra\_functions.scss" />
+    <Content Include="Content\css\sass\bootstrap-extra\_functions_vars.scss" />
     <None Include="Scripts\js\jquery\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\js\jquery\jquery-1.8.2.js" />
     <Content Include="Scripts\js\jquery\jquery-1.8.2.min.js" />

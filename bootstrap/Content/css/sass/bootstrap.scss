@@ -2,6 +2,10 @@
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
+//Extra
+@import "bootstrap-extra/vars";
+@import "bootstrap-extra/mixins";
+
 // Reset
 @import "bootstrap/normalize";
 @import "bootstrap/print";
@@ -48,14 +52,50 @@
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
 
-
 body {
-	padding: 50px 0 0;
-	background: #ccc;
+    //font-family: $proximaNova;
+    @include rem(font-size, 15px);
+	-webkit-font-smoothing: antialiased; //MAC
+}
+
+.serif {
+    //font-family: $tisaPro;
+	//letter-spacing:-1px;
+	//letter-spacing:-0.1rem;
+}
+
+.sans-serif {
+    //font-family: $proximaNova;
 }
 
 .footer {
 	p {
 		text-align: center;
+	}
+}
+
+//Helper
+
+//MOBILE					320
+//MOBILE Portrait			480
+//TABLET Portrait			768
+//DESKTOP					960
+//DESKTOP Windescreen		1200
+//DESKTOP HD1080p			1920
+
+// Media Queries
+@media (min-width: $mobileWidth)	{}
+@media (min-width: $tabletWidth)	{}
+@media (min-width: $desktopWidth)	{}
+
+// Retina
+@media (min--moz-device-pixel-ratio: 1.5),
+(-o-min-device-pixel-ratio: 3/2),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-device-pixel-ratio: 1.5),
+(min-resolution: 1.5dppx) {
+	.no-results {
+		//background: url(#{$img-path}no-results@x2.png) 50% 0 no-repeat;
+		background-size: 185px 210px;
 	}
 }
