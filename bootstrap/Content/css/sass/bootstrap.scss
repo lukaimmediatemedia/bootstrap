@@ -55,7 +55,7 @@
 body {
     //font-family: $proximaNova;
     @include rem(font-size, 15px);
-	-webkit-font-smoothing: antialiased; //MAC
+	-webkit-font-smoothing: antialiased; //MAC it dosnt catch input, button
 }
 
 .serif {
@@ -99,3 +99,40 @@ body {
 		background-size: 185px 210px;
 	}
 }
+
+// CSS
+	//_decoration
+	//_headers
+	//_type
+
+// BASE
+	
+
+// COMMON
+
+// COMPONENTS
+	//bootstrap
+		//fonts
+		//less
+
+// IMPORTS
+	//foundation_vars
+	//functions
+	//mixins
+	//vars
+
+// MODULES
+	//contact
+	//core
+	//home
+	//member
+	//search
+	//venue
+	//sprites
+
+//MAIN
+	//core
+	//home
+	//member
+	//search_results
+	//venue
